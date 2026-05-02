@@ -124,66 +124,6 @@ http://localhost:3000
 
 ---
 
-## 🗺️ Example Routes to Try
-
-| Start | End |
-|---|---|
-| `Chicago O'Hare International Airport, Chicago, IL` | `Millennium Park, Chicago, IL` |
-| `Times Square, New York, NY` | `Brooklyn Bridge, New York, NY` |
-| `Los Angeles International Airport, CA` | `Hollywood Sign, Los Angeles, CA` |
-| `Chicago, IL` | `Indianapolis, IN` |
-
-> 💡 Tip: Type at least 2 characters to trigger autocomplete suggestions.
-
----
-
-## 🔌 API Endpoints
-
-### `GET /autocomplete?q=<query>`
-Returns up to 10 location suggestions from the loaded crime/accident datasets.
-
-**Response:**
-```json
-[
-  { "name": "N Michigan Ave, Chicago, IL", "lat": 41.89, "lng": -87.62 }
-]
-```
-
----
-
-### `POST /route`
-Fetches and scores alternative driving routes.
-
-**Request Body:**
-```json
-{
-  "start": { "lat": 41.9742, "lng": -87.9073 },
-  "end":   { "lat": 41.8827, "lng": -87.6233 }
-}
-```
-
-**Response:** GeoJSON `FeatureCollection` with safety scores attached to each route feature:
-```json
-{
-  "type": "FeatureCollection",
-  "features": [
-    {
-      "geometry": { ... },
-      "properties": {
-        "safety": 87,
-        "safetyBreakdown": {
-          "crimeCount": 120,
-          "accidentCount": 34
-        },
-        "summary": { "distance": 28400, "duration": 1920 }
-      }
-    }
-  ]
-}
-```
-
----
-
 ## 🧠 C++ Engine (Standalone)
 
 The `cpp_engine/` folder contains a custom **Dijkstra's algorithm** implementation in C++ for graph-based pathfinding. Each edge has a `distance` and `risk` value, and the cost function is:
@@ -199,9 +139,3 @@ To compile manually:
 g++ -o main main.cpp router.cpp
 ./main
 ```
-
----
-
-## 👤 Author
-
-Built as a full-stack safety routing system combining real-world open datasets with a modern web interface.
