@@ -1,4 +1,4 @@
-# 🛡️ SafeX — Safe Route Planner
+# 🛡️ SafeX — Safe Route Recommendation System
 
 A safety-aware driving route planner that fetches multiple alternative routes between two locations and ranks them by a **safety score** calculated from real-world crime and accident data.
 
